@@ -7,6 +7,7 @@ return {
   },
   config = function()
     local nvim_tree = require("nvim-tree")
+    local api = require("nvim-tree.api")
 
     nvim_tree.setup({
       sort_by = "case_sensitive",
@@ -41,6 +42,9 @@ return {
     -- 快捷键绑定
     vim.keymap.set("n", "<leader>te", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree", silent = true })
     vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "Find file in NvimTree", silent = true })
+    vim.keymap.set("n", "<leader>tc", function()
+      api.tree.collapse_all()
+    end, { desc = "🔽 Collapse All Directories", silent = true })
 
     -- 自动关闭 nvim 当只剩下树窗口
     vim.api.nvim_create_autocmd("BufEnter", {
@@ -52,13 +56,6 @@ return {
         then
           vim.cmd("quit")
         end
-      end,
-    })
-
-    -- 启动时自动打开树
-    vim.api.nvim_create_autocmd("VimEnter", {
-      callback = function()
-        require("nvim-tree.api").tree.open()
       end,
     })
   end,
