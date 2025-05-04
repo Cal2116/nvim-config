@@ -75,7 +75,7 @@ return {
 
 		-- Vue / Volar，支持 Vue + TS/JS 文件
 		setup("vue-language-server", {
-			filetypes = { "vue", "typescript", "javascript" },
+			filetypes = { "vue" },
 			init_options = {
 				vue = {
 					hybridMode = false,
