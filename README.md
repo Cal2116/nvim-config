@@ -18,6 +18,10 @@
 | `<leader>b`   | 显示当前打开的 buffer 列表  |
 | `<leader>h`   | 查找帮助文档                |
 | `<leader>r`   | 恢复上一次搜索结果          |
+| `<leader>cc`  | 打开 copilot 对话框         |
+| `<leader>ce`  | 使用 copilot 解释当前代码   |
+| `<leader>co`  | 使用 copilot 优化当前代码   |
+| `<leader>cf`  | 使用 copilot 修复当前代码   |
 | `<C-z>`       | 撤销                        |
 
 ## 插件
