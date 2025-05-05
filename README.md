@@ -22,6 +22,9 @@
 | `<leader>ce`  | 使用 copilot 解释当前代码   |
 | `<leader>co`  | 使用 copilot 优化当前代码   |
 | `<leader>cf`  | 使用 copilot 修复当前代码   |
+| `<leader>lc`  | 重命名变量                  |
+| `<leader>ld`  | 跳转到变量定义处            |
+| `<leader>lR`  | 找到变量的使用处            |
 | `<C-z>`       | 撤销                        |
 
 ## 插件

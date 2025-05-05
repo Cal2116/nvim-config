@@ -32,19 +32,16 @@ return {
         enable = true,
         ignore = false,
       },
-      actions = {
-        open_file = {
-          quit_on_open = true, -- 打开文件后自动关闭文件树
-        },
-      },
     })
 
     -- 快捷键绑定
-    vim.keymap.set("n", "<leader>te", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree", silent = true })
-    vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "Find file in NvimTree", silent = true })
+    vim.keymap.set("n", "<leader>nt", ":wincmd h<CR>", { desc = "切换到左侧树" })
+    vim.keymap.set("n", "<leader>bt", ":wincmd l<CR>", { desc = "切换到右侧 buffer" })
+    vim.keymap.set("n", "<leader>te", ":NvimTreeToggle<CR>", { desc = "打开nvim-tree", silent = true })
+    vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "在nvim-tree中找到当前文件", silent = true })
     vim.keymap.set("n", "<leader>tc", function()
       api.tree.collapse_all()
-    end, { desc = "🔽 Collapse All Directories", silent = true })
+    end, { desc = "折叠所有目录", silent = true })
 
     -- 自动关闭 nvim 当只剩下树窗口
     vim.api.nvim_create_autocmd("BufEnter", {

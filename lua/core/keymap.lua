@@ -1,22 +1,17 @@
 -- 将撤销绑定到 Ctrl + Z
 vim.keymap.set({ "n", "i" }, "<C-z>", "<Cmd>undo<CR>", { silent = true })
 
--- 打开 Chat 窗口
-vim.keymap.set("n", "<leader>cc", function()
-  require("CopilotChat").toggle()
-end, { desc = "Toggle Copilot Chat" })
+-- 复制当前行到系统剪贴板
+vim.api.nvim_set_keymap("n", "<leader>cy", '"+yy', { noremap = true, silent = true, desc = "Copy current line to clipboard" })
+-- (Visual 模式)复制选中区域到系统剪贴板
+vim.api.nvim_set_keymap("v", "<leader>cy", '"+y', { noremap = true, silent = true, desc = "Copy selected content to clipboard" })
+-- 复制当前单词到系统剪贴板
+vim.api.nvim_set_keymap("n", "<leader>cyw", '"+yw', { noremap = true, silent = true, desc = "Copy word under cursor to clipboard" })
 
--- 在 visual 模式下对所选代码进行提问
-vim.keymap.set("v", "<leader>cq", function()
-  require("CopilotChat").ask("解释这段代码")
-end, { desc = "Copilot Chat: explain selected code" })
+-- 删除当前行并将其放入剪贴板
+vim.api.nvim_set_keymap("n", "<leader>cd", '"+dd', { noremap = true, silent = true, desc = "Cut current line to clipboard" })
+-- (Visual 模式)删除选中区域并将其放入剪贴板
+vim.api.nvim_set_keymap("v", "<leader>cd", '"+d', { noremap = true, silent = true, desc = "Cut selected content to clipboard" })
 
-vim.g.copilot_no_tab_map = true
-
-vim.api.nvim_set_keymap("i", "<C-]>", 'copilot#Accept("<CR>")', {
-  expr = true,
-  silent = true,
-  noremap = true,
-})
-
-
+-- 从剪贴板粘贴内容到光标后
+vim.api.nvim_set_keymap("n", "<leader>cp", '"+p', { noremap = true, silent = true, desc = "Paste clipboard content after cursor" })
